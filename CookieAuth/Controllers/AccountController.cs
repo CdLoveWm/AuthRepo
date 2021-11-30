@@ -59,7 +59,7 @@ namespace CookieAuth.Controllers
         /// </summary>
         public IActionResult LogOut()
         {
-            // 登出，清楚Cookie
+            // 登出，清除Cookie
             HttpContext.SignOutAsync();
             return RedirectToAction("login");
         }

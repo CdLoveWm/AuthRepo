@@ -30,20 +30,24 @@ namespace CookieAuth
 
             services.AddTransient<IUserServices, UserServices>();
             services.AddControllersWithViews()
-            .AddRazorRuntimeCompilation().AddJsonOptions(options =>
+            .AddRazorRuntimeCompilation() // cshtml保存编译
+            .AddJsonOptions(options =>
             {
                 options.JsonSerializerOptions.PropertyNamingPolicy = null;//解决后端字段传到前端小写问题
                 options.JsonSerializerOptions.Encoder = JavaScriptEncoder.Create(UnicodeRanges.All);//解决后端返回数据中文被编码
             });
 
+            // 添加认证
             services.AddAuthentication(options =>
             {
                 options.DefaultScheme = CookieAuthenticationDefaults.AuthenticationScheme;
             })
             .AddCookie(options => {
-                options.Cookie.Name = CookieAuthenticationDefaults.AuthenticationScheme; // 未登录时跳转的URL
-                options.LoginPath = "/Account/login";
+                options.Cookie.Name = CookieAuthenticationDefaults.AuthenticationScheme; // Cookie的key
+                options.LoginPath = "/Account/login"; // 未认证时的登录地址
                 options.AccessDeniedPath = "/Account/login"; // 认证失败跳转的URL
+                options.ExpireTimeSpan = TimeSpan.FromSeconds(10); // 设置Cookie的有效时间
+                options.SlidingExpiration = true; // 当Cookie有效时间过半，然后有请求来的时候，将原有Cookie更新：保证一直使用的时候不会因为Cookie失效退出
             });
         }
 
@@ -62,8 +66,8 @@ namespace CookieAuth
 
             app.UseRouting();
 
+            // 使用认证授权
             app.UseAuthentication();
-
             app.UseAuthorization();
 
             app.UseEndpoints(endpoints =>
