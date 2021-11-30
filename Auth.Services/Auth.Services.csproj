@@ -1,0 +1,12 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net5.0</TargetFramework>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\Auth.IServices\Auth.IServices.csproj" />
+    <ProjectReference Include="..\Auth.Models\Auth.Models.csproj" />
+  </ItemGroup>
+
+</Project>

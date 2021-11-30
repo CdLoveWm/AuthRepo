@@ -1,0 +1,14 @@
+﻿@{
+    ViewData["Title"] = "Home Page";
+}
+
+<div class="text-center">
+    <h1 class="display-4">Welcome Home Index</h1>
+    <p>Learn about <a href="https://docs.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
+
+    <ul>
+        <li>@ViewBag.CurrentUser.UserName</li>
+        <li>@ViewBag.CurrentUser.UserCode</li>
+        <li>@ViewBag.CurrentUser.Email</li>
+    </ul>
+</div>

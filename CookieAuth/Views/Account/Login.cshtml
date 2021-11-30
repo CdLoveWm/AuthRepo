@@ -1,0 +1,34 @@
+﻿@{
+    ViewData["Title"] = "Login";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<h1>Login</h1>
+
+<div>
+    <div>
+        <span>用户名：</span>
+        <input type="text" id="UserCode" style="display:inline" />
+    </div>
+    <div>
+        <span>密　码：</span>
+        <input type="password" id="Password" style="display:inline" />
+    </div>
+    <div>
+        <button type="button" onclick="Login()">登 录</button>
+    </div>
+</div>
+
+<script>
+    function Login() {
+        var userCode = $("#UserCode").val()
+        var password = $("#Password").val()
+        $.post("/Account/login", { userCode, password }, function (res) {
+            if(res.Code == 0){
+                window.location.href = "@Url.Action("Index","Home")"
+            }else{
+                alert("登录失败，请重试")
+            }
+        })
+    }
+</script>
+
