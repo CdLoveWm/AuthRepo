@@ -11,7 +11,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Auth.Services", "Auth.Servi
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CookieAuth", "CookieAuth\CookieAuth.csproj", "{075A98CD-65A5-436C-81F9-C1AF29E5702A}"
 EndProject
-Project("{F2A71F9B-5D33-465A-A702-920D77279786}") = "JwtBearerAuth", "JwtBearerAuth\JwtBearerAuth.fsproj", "{6C5CF399-919B-4E6E-9AAB-1B6556C6BD1E}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "JwtBearerAuth", "JwtBearerAuth\JwtBearerAuth.csproj", "{1617CE8F-4558-447E-9A21-AEC61A58435F}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -35,10 +35,10 @@ Global
 		{075A98CD-65A5-436C-81F9-C1AF29E5702A}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{075A98CD-65A5-436C-81F9-C1AF29E5702A}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{075A98CD-65A5-436C-81F9-C1AF29E5702A}.Release|Any CPU.Build.0 = Release|Any CPU
-		{6C5CF399-919B-4E6E-9AAB-1B6556C6BD1E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{6C5CF399-919B-4E6E-9AAB-1B6556C6BD1E}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{6C5CF399-919B-4E6E-9AAB-1B6556C6BD1E}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{6C5CF399-919B-4E6E-9AAB-1B6556C6BD1E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{1617CE8F-4558-447E-9A21-AEC61A58435F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1617CE8F-4558-447E-9A21-AEC61A58435F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1617CE8F-4558-447E-9A21-AEC61A58435F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1617CE8F-4558-447E-9A21-AEC61A58435F}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
