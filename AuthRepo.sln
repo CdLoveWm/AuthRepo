@@ -9,9 +9,9 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Auth.IServices", "Auth.ISer
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Auth.Services", "Auth.Services\Auth.Services.csproj", "{06DAE7B6-44D8-4F6E-B6D6-11A14A6F9FA4}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "JwtAuth", "JwtAuth\JwtAuth.csproj", "{04F34366-B79C-4E4F-AD0E-14D6F5CC06EF}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CookieAuth", "CookieAuth\CookieAuth.csproj", "{075A98CD-65A5-436C-81F9-C1AF29E5702A}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CookieAuth", "CookieAuth\CookieAuth.csproj", "{075A98CD-65A5-436C-81F9-C1AF29E5702A}"
+Project("{F2A71F9B-5D33-465A-A702-920D77279786}") = "JwtBearerAuth", "JwtBearerAuth\JwtBearerAuth.fsproj", "{6C5CF399-919B-4E6E-9AAB-1B6556C6BD1E}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -31,14 +31,14 @@ Global
 		{06DAE7B6-44D8-4F6E-B6D6-11A14A6F9FA4}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{06DAE7B6-44D8-4F6E-B6D6-11A14A6F9FA4}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{06DAE7B6-44D8-4F6E-B6D6-11A14A6F9FA4}.Release|Any CPU.Build.0 = Release|Any CPU
-		{04F34366-B79C-4E4F-AD0E-14D6F5CC06EF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{04F34366-B79C-4E4F-AD0E-14D6F5CC06EF}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{04F34366-B79C-4E4F-AD0E-14D6F5CC06EF}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{04F34366-B79C-4E4F-AD0E-14D6F5CC06EF}.Release|Any CPU.Build.0 = Release|Any CPU
 		{075A98CD-65A5-436C-81F9-C1AF29E5702A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{075A98CD-65A5-436C-81F9-C1AF29E5702A}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{075A98CD-65A5-436C-81F9-C1AF29E5702A}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{075A98CD-65A5-436C-81F9-C1AF29E5702A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{6C5CF399-919B-4E6E-9AAB-1B6556C6BD1E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6C5CF399-919B-4E6E-9AAB-1B6556C6BD1E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6C5CF399-919B-4E6E-9AAB-1B6556C6BD1E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6C5CF399-919B-4E6E-9AAB-1B6556C6BD1E}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
