@@ -40,6 +40,7 @@ namespace CookieAuth
             // 添加认证
             services.AddAuthentication(options =>
             {
+                // 只配置DefaultScheme，那么DefaultSignInScheme, DefaultSignOutScheme, DefaultChallengeScheme, DefaultForbidScheme 等都会使用该 Scheme 作为默认值。
                 options.DefaultScheme = CookieAuthenticationDefaults.AuthenticationScheme;
             })
             .AddCookie(options => {
