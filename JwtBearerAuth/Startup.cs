@@ -92,7 +92,26 @@ namespace JwtBearerAuth
             // ÅäÖÃJWT
             .AddJwtBearer(opt =>
             {
-                opt.TokenValidationParameters = JwtHandler.GetTokenValidParamConfig(jwtSettings);
+                //opt.TokenValidationParameters = JwtHandler.GetTokenValidParamConfig(jwtSettings);
+                opt.TokenValidationParameters = JwtRsaHandler.GetTokenValidParamConfig(jwtSettings);
+                opt.Events = new JwtBearerEvents()
+                {
+                    OnMessageReceived = context =>
+                    {
+
+                        return Task.CompletedTask;
+                    },
+                    OnTokenValidated = context =>
+                    {
+
+                        return Task.CompletedTask;
+                    },
+                    OnChallenge = context =>
+                    {
+
+                        return Task.CompletedTask;
+                    }
+                }
             });
 
             #endregion

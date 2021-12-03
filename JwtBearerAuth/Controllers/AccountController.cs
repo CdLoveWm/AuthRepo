@@ -49,7 +49,8 @@ namespace JwtBearerAuth.Controllers
                 new Claim(JwtClaimTypes.Email, user.Email),
                 new Claim(JwtClaimTypes.Id, user.UserCode),
             };
-            string token = JwtHandler.GenerateToken(_jwtSettings, claims);
+            //string token = JwtHandler.GenerateToken(_jwtSettings, claims);
+            string token = JwtRsaHandler.GenerateToken(_jwtSettings, claims);
             return new ResulModel<string>()
             {
                 Code = 0,
