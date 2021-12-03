@@ -111,7 +111,7 @@ namespace JwtBearerAuth
 
                         return Task.CompletedTask;
                     }
-                }
+                };
             });
 
             #endregion
