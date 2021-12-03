@@ -90,7 +90,10 @@ namespace JwtBearerAuth
                 options.DefaultScheme = JwtBearerDefaults.AuthenticationScheme;
             })
             // ÅäÖÃJWT
-            .AddJwtBearer(opt => JwtHandler.GetTokenValidParamConfig(jwtSettings));
+            .AddJwtBearer(opt =>
+            {
+                opt.TokenValidationParameters = JwtHandler.GetTokenValidParamConfig(jwtSettings);
+            });
 
             #endregion
 
