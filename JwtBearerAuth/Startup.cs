@@ -90,6 +90,7 @@ namespace JwtBearerAuth
                 options.DefaultScheme = JwtBearerDefaults.AuthenticationScheme;
             })
             // ÅäÖÃJWT
+            // JWTBearerÎÄµµ£ºhttps://docs.microsoft.com/zh-cn/dotnet/api/microsoft.aspnetcore.authentication.jwtbearer?view=aspnetcore-5.0
             .AddJwtBearer(opt =>
             {
                 //opt.TokenValidationParameters = JwtHandler.GetTokenValidParamConfig(jwtSettings);
