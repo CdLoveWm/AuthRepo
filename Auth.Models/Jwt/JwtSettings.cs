@@ -22,7 +22,7 @@ namespace Auth.Models.Jwt
         public string Audience { get; set; }
 
         /// <summary>
-        /// 加密key（SecretKey必须大于16）
+        /// 对称加密key（SecretKey必须大于16）
         /// </summary>
         public string SecretKey { get; set; }
         /// <summary>
