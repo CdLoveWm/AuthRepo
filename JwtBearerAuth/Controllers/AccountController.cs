@@ -48,6 +48,10 @@ namespace JwtBearerAuth.Controllers
                 new Claim(JwtClaimTypes.Name, user.UserName),
                 new Claim(JwtClaimTypes.Email, user.Email),
                 new Claim(JwtClaimTypes.Id, user.UserCode),
+                // 角色
+                //new Claim(JwtClaimTypes.Role, "admin"),
+                new Claim(JwtClaimTypes.Role, "admin1"),
+                //new Claim(JwtClaimTypes.Role, "admin2"),
             };
             string token = JwtHandler.GenerateToken(_jwtSettings, claims);
             //string token = JwtRsaHandler.GenerateToken(_jwtSettings, claims);
