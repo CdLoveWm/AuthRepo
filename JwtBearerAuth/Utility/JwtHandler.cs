@@ -56,8 +56,6 @@ namespace JwtBearerAuth.Utility
         {
             return new TokenValidationParameters
             {
-                NameClaimType = JwtClaimTypes.Name,
-                RoleClaimType = JwtClaimTypes.Role,
                 ValidIssuer = jwtSettings.Issuer, // Token的颁发机构
                 ValidAudience = jwtSettings.Audience, // Token颁发给谁
                 // 缓冲过期时间，总的Token的有效时长等于这个时间加上jwt的过期时间，如果不配置，默认是5分钟

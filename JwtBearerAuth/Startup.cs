@@ -93,13 +93,12 @@ namespace JwtBearerAuth
             // JWTBearerÎÄµµ£ºhttps://docs.microsoft.com/zh-cn/dotnet/api/microsoft.aspnetcore.authentication.jwtbearer?view=aspnetcore-5.0
             .AddJwtBearer(opt =>
             {
-                //opt.TokenValidationParameters = JwtHandler.GetTokenValidParamConfig(jwtSettings);
-                opt.TokenValidationParameters = JwtRsaHandler.GetTokenValidParamConfig(jwtSettings);
+                opt.TokenValidationParameters = JwtHandler.GetTokenValidParamConfig(jwtSettings);
+                //opt.TokenValidationParameters = JwtRsaHandler.GetTokenValidParamConfig(jwtSettings);
                 opt.Events = new JwtBearerEvents()
                 {
                     OnMessageReceived = context =>
                     {
-
                         return Task.CompletedTask;
                     },
                     OnTokenValidated = context =>
