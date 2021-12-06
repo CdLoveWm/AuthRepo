@@ -87,7 +87,7 @@ namespace JwtBearerAuth
             // 添加认证服务
             services.AddAuthentication(options =>
             {
-                options.DefaultScheme = JwtBearerDefaults.AuthenticationScheme;
+                options.DefaultScheme = JwtBearerDefaults.AuthenticationScheme; // 这里为JWT的Schema
             })
             // 配置JWT
             // JWTBearer文档：https://docs.microsoft.com/zh-cn/dotnet/api/microsoft.aspnetcore.authentication.jwtbearer?view=aspnetcore-5.0
