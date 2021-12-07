@@ -116,7 +116,7 @@ namespace JwtBearerAuth
 
             #endregion
 
-            #region 基于声明的策略
+            #region 基于声明的授权
 
             //services.AddAuthorization(options =>
             //{
