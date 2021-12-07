@@ -77,7 +77,7 @@ namespace JwtBearerAuth
                 #endregion
             });
 
-            #region JWT
+            #region JWT认证
             // 其他地方注入时使用
             services.Configure<JwtSettings>(Configuration.GetSection("JwtSettings"));
             // 绑定配置到实例
@@ -113,6 +113,18 @@ namespace JwtBearerAuth
                     }
                 };
             });
+
+            #endregion
+
+            #region 基于声明的策略
+
+            //services.AddAuthorization(options =>
+            //{
+            //    // 1、该声明表示必须拥有名为 EmpName 的Claim才能鉴权成功
+            //    options.AddPolicy("RequireEmpName", policy => policy.RequireClaim("empname"));
+            //    // 2、该声明表示必须拥有名为 EmpName 的Claim，而且对应的数据必须为【emp1、emp2】中的一个才能鉴权成功
+            //    options.AddPolicy("SpecialEmpName", policy => policy.RequireClaim("empname", new string[] { "emp1", "emp2" }));
+            //});
 
             #endregion
 
