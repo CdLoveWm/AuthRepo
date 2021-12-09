@@ -19,6 +19,9 @@ using System.Text;
 using System.Threading.Tasks;
 using Swashbuckle.AspNetCore.Swagger;
 using JwtBearerAuth.Utility;
+using JwtBearerAuth.Policy;
+using Microsoft.AspNetCore.Authorization.Infrastructure;
+using Microsoft.AspNetCore.Authorization;
 
 namespace JwtBearerAuth
 {
@@ -118,13 +121,27 @@ namespace JwtBearerAuth
 
             #region 基于声明的授权
 
-            //services.AddAuthorization(options =>
-            //{
-            //    // 1、该声明表示必须拥有名为 EmpName 的Claim才能鉴权成功
-            //    options.AddPolicy("RequireEmpName", policy => policy.RequireClaim("empname"));
-            //    // 2、该声明表示必须拥有名为 EmpName 的Claim，而且对应的数据必须为【emp1、emp2】中的一个才能鉴权成功
-            //    options.AddPolicy("SpecialEmpName", policy => policy.RequireClaim("empname", new string[] { "emp1", "emp2" }));
-            //});
+            services.AddAuthorization(options =>
+            {
+                // 1、该声明表示必须拥有名为 EmpName 的Claim才能鉴权成功
+                options.AddPolicy("RequireEmpName", policy => policy.RequireClaim("empname"));
+                // 2、该声明表示必须拥有名为 EmpName 的Claim，而且对应的数据必须为【emp1、emp2】中的一个才能鉴权成功
+                options.AddPolicy("SpecialEmpName", policy => policy.RequireClaim("empname", new string[] { "emp1", "emp2" }));
+            });
+
+            #endregion
+
+            #region 基于策略--自定义策略
+
+            services.AddAuthorization(options =>
+            {
+                // 策略和策略处理类合并
+                options.AddPolicy("specialNamePolicy", policy => policy.AddRequirements(new SpecialNameRequirement()));
+                // 策略和策略处理类分开
+                options.AddPolicy(nameof(SpecialNameSignalRequirement), policy => policy.AddRequirements(new SpecialNameSignalRequirement()));
+            });
+            // 策略和策略处理类分开时，需要注册策略处理类
+            services.AddScoped<IAuthorizationHandler, SpecialNameSignalRequirementHandler>();
 
             #endregion
 
