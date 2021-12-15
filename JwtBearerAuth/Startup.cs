@@ -22,6 +22,8 @@ using JwtBearerAuth.Utility;
 using JwtBearerAuth.Policy;
 using Microsoft.AspNetCore.Authorization.Infrastructure;
 using Microsoft.AspNetCore.Authorization;
+using JwtBearerAuth.Extensions;
+using Microsoft.AspNetCore.Authentication;
 
 namespace JwtBearerAuth
 {
@@ -80,6 +82,7 @@ namespace JwtBearerAuth
                 #endregion
             });
 
+
             #region JWT认证
             // 其他地方注入时使用
             services.Configure<JwtSettings>(Configuration.GetSection("JwtSettings"));
@@ -91,6 +94,13 @@ namespace JwtBearerAuth
             services.AddAuthentication(options =>
             {
                 options.DefaultScheme = JwtBearerDefaults.AuthenticationScheme; // 这里为JWT的Schema
+
+                #region 自定义Schema
+
+                options.DefaultForbidScheme = nameof(FailAuthResponseHandler);
+                options.DefaultChallengeScheme = nameof(FailAuthResponseHandler);
+
+                #endregion
             })
             // 配置JWT
             // JWTBearer文档：https://docs.microsoft.com/zh-cn/dotnet/api/microsoft.aspnetcore.authentication.jwtbearer?view=aspnetcore-5.0
@@ -98,24 +108,29 @@ namespace JwtBearerAuth
             {
                 opt.TokenValidationParameters = JwtHandler.GetTokenValidParamConfig(jwtSettings);
                 //opt.TokenValidationParameters = JwtRsaHandler.GetTokenValidParamConfig(jwtSettings);
-                opt.Events = new JwtBearerEvents()
-                {
-                    OnMessageReceived = context =>
-                    {
-                        return Task.CompletedTask;
-                    },
-                    OnTokenValidated = context =>
-                    {
 
-                        return Task.CompletedTask;
-                    },
-                    OnChallenge = context =>
-                    {
+                #region JWT事件
+                //opt.Events = new JwtBearerEvents()
+                //{
+                //    OnMessageReceived = context =>
+                //    {
+                //        return Task.CompletedTask;
+                //    },
+                //    OnTokenValidated = context =>
+                //    {
 
-                        return Task.CompletedTask;
-                    }
-                };
-            });
+                //        return Task.CompletedTask;
+                //    },
+                //    OnChallenge = context =>
+                //    {
+
+                //        return Task.CompletedTask;
+                //    }
+                //};
+                #endregion
+            })
+            // 添加自定义Handler
+            .AddScheme<AuthenticationSchemeOptions, FailAuthResponseHandler>(nameof(FailAuthResponseHandler), o => { });
 
             #endregion
 
